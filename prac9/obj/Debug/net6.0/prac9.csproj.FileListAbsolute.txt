@@ -1,0 +1,15 @@
+C:\Users\HOME\RiderProjects\prac9\prac9\bin\Debug\net6.0\prac9.exe
+C:\Users\HOME\RiderProjects\prac9\prac9\bin\Debug\net6.0\prac9.deps.json
+C:\Users\HOME\RiderProjects\prac9\prac9\bin\Debug\net6.0\prac9.runtimeconfig.json
+C:\Users\HOME\RiderProjects\prac9\prac9\bin\Debug\net6.0\prac9.dll
+C:\Users\HOME\RiderProjects\prac9\prac9\bin\Debug\net6.0\ref\prac9.dll
+C:\Users\HOME\RiderProjects\prac9\prac9\bin\Debug\net6.0\prac9.pdb
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.csproj.AssemblyReference.cache
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.AssemblyInfoInputs.cache
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.AssemblyInfo.cs
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.csproj.CoreCompileInputs.cache
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.dll
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\ref\prac9.dll
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.pdb
+C:\Users\HOME\RiderProjects\prac9\prac9\obj\Debug\net6.0\prac9.genruntimeconfig.cache
