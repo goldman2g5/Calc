@@ -6,71 +6,99 @@ public class Program
     private static void Main(string[] args)
         {
             Operation.CreateOperations();
-            
+
             void Func(ref List<string> strLs, string value = "null")
             {
-                Console.Clear();
-                Console.Write($"Input expression\n >> {(value == "null" ? "" : value)} ");
-                string input = Console.ReadLine().ToLower();
-
-                switch (input)
+                while (true)
                 {
-                    case "exit":
-                        strLs.Add("exit");
-                        break;
+                    Console.Clear();
+                    Console.Write($"Input expression\n >> {(value == "null" ? "" : value)} ");
+                    string input = Console.ReadLine().ToLower();
 
-                    case "clear":
-                        strLs.Add("clear");
-                        Func(ref strLs);
-                        break;
+                    switch (input)
+                    {
+                        case "":
+                            Func(ref strLs, value);
+                            break;
+                        
+                        case "exit":
+                            strLs.Add("exit");
+                            break;
 
-                    default:
-                        try
-                        {
-                            if (value != "null" & !Operation.List.Select(x => x.Trigger).ToList().Contains(input[0].ToString()))
+                        case "clear":
+                            strLs.Add("clear");
+                            value = "null";
+                            continue;
+
+                        case "sqrt":
+                            if (value == "null")
                             {
                                 Console.WriteLine("Input string was not in a correct format\nType 'clear' to work with a new number\nPress any key");
                                 strLs.Add("Input string was not in a correct format.");
                                 Console.ReadKey();
                                 Func(ref strLs, value);
                             }
-                            if (value != "null")
-                            {
-                                input = $"{value}" + input;
-                            }
-                            var queue = new Queue<string>();
-                            string temp = "";
-                            foreach (string i in input.ToCharArray().Select(x => x.ToString()).Where(x => x != " ").ToList())
-                            {
-                                if (Operation.List.Select(x => x.Trigger).ToList().Contains(i))
-                                {
-                                    queue.Enqueue(temp);
-                                    queue.Enqueue(i);
-                                    temp = "";
-                                    continue; 
-                                }
-                                temp += i;
-                            }
-                            queue.Enqueue(temp);
-                            
-                            double x = Convert.ToDouble(queue.Dequeue());
-                            while (queue.Count != 0)
-                            {
-                                string t = queue.Dequeue();
-                                x = Operation.List.Where(x => x.Trigger == t).ToList()[0].Fn(x, Convert.ToDouble(queue.Dequeue()));
 
+                            double valuesqrt = Math.Sqrt(Convert.ToDouble(value));
+                            strLs.Add($"sqrt of {value} = {valuesqrt.ToString()}");
+                            value = Math.Round(valuesqrt, 2).ToString();
+                            continue;
+
+                        default:
+                            try
+                            {
+                                if (value != "null" & !Operation.List.Select(x => x.Trigger).ToList().Contains(input[0].ToString()))
+                                {
+                                    Console.WriteLine("Input string was not in a correct format\nType 'clear' to work with a new number\nPress any key");
+                                    strLs.Add("Input string was not in a correct format.");
+                                    Console.ReadKey();
+                                    Func(ref strLs, value);
+                                }
+
+                                if (value != "null")
+                                {
+                                    input = $"{value}" + input;
+                                }
+
+                                var queue = new Queue<string>();
+                                string temp = "";
+                                foreach (string i in input.ToCharArray().Select(x => x.ToString()).Where(x => x != " ").ToList())
+                                {
+                                    if (Operation.List.Select(x => x.Trigger).ToList().Contains(i))
+                                    {
+                                        queue.Enqueue(temp);
+                                        queue.Enqueue(i);
+                                        temp = "";
+                                        continue;
+                                    }
+
+                                    temp += i;
+                                }
+
+                                queue.Enqueue(temp);
+
+                                double x = Convert.ToDouble(queue.Dequeue());
+                                while (queue.Count != 0)
+                                {
+                                    string t = queue.Dequeue();
+                                    x = Operation.List.Where(x => x.Trigger == t).ToList()[0].Fn(x, Convert.ToDouble(queue.Dequeue()));
+                                }
+
+                                strLs.Add($"{input} = {value}");
+                                Func(ref strLs, Math.Round(x, 2).ToString());
                             }
-                            strLs.Add($"{input} = {value}");
-                            Func(ref strLs, Math.Round(x, 2).ToString());
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine($"{e.Message}\nPress any key");
-                            strLs.Add($"{e.Message}");
-                            Console.ReadKey();
-                            Func(ref strLs);
-                        }
-                        break;
+                            catch (Exception e)
+                            {
+                                Console.WriteLine($"{e.Message}\nPress any key");
+                                strLs.Add($"{e.Message}");
+                                Console.ReadKey();
+                                Func(ref strLs);
+                            }
+
+                            break;
+                    }
+
+                    break;
                 }
             }
 
