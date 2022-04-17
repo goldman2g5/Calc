@@ -47,11 +47,6 @@ public class Operation
         {
             return Math.Pow(x, y);
         }
-        
-        double Sqrt(double x, double y)
-        {
-            return Math.Sqrt(x);
-        }
 
         new Operation("+", Sum);
         new Operation("-", Minus);
@@ -59,6 +54,5 @@ public class Operation
         new Operation("/", Divide);
         new Operation("%", Divide2);
         new Operation("^", Degree);
-        new Operation("sqrt", Degree);
     }
 }
